@@ -13,29 +13,29 @@ void main(List<String> args) {
   switch (operator) {
     case '+':
       {
-        int firstNum = inputNum().toInt();
-        displayResult(add(firstNum, inputNum().toInt()));
+        int firstNum = inputNum();
+        displayResult(add(firstNum, inputNum()));
         break;
       }
 
     case '-':
       {
-        int firstNum = inputNum().toInt();
-        displayResult(sub(firstNum, inputNum().toInt()));
+        int firstNum = inputNum();
+        displayResult(sub(firstNum, inputNum()));
         break;
       }
 
     case '*':
       {
-        int firstNum = inputNum().toInt();
-        displayResult(mul(firstNum, inputNum().toInt()));
+        int firstNum = inputNum();
+        displayResult(mul(firstNum, inputNum()));
         break;
       }
 
     case '/':
       {
-        double firstNum = inputNum();
-        displayResult(div(firstNum, inputNum()));
+        double firstNum = inputNum().toDouble();
+        displayResult(div(firstNum, inputNum().toDouble()));
         break;
       }
     default:
@@ -48,6 +48,11 @@ void main(List<String> args) {
         }
       }
   }
+}
+
+int inputNum() {
+  stdout.write('Enter the value ');
+  return int.parse(stdin.readLineSync()!);
 }
 
 int add(int a, int b) {
@@ -67,11 +72,6 @@ double div(double a, double b) {
     print('Denominator can not be 0 ');
   }
   return (a / b);
-}
-
-double inputNum() {
-  stdout.write('Enter the value ');
-  return double.parse(stdin.readLineSync()!);
 }
 
 void displayResult(final res) {
