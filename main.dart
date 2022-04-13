@@ -2,6 +2,7 @@ import 'dart:io';
 
 void main(List<String> args) {
   String? operator;
+
   print('Enter + to add');
   print('Enter - to subtract');
   print('Enter * to multiply');
@@ -13,29 +14,25 @@ void main(List<String> args) {
   switch (operator) {
     case '+':
       {
-        int firstNum = inputNum();
-        displayResult(add(firstNum, inputNum()));
+        displayResult(add(inputNum(), inputNum()));
         break;
       }
 
     case '-':
       {
-        int firstNum = inputNum();
-        displayResult(sub(firstNum, inputNum()));
+        displayResult(sub(inputNum(), inputNum()));
         break;
       }
 
     case '*':
       {
-        int firstNum = inputNum();
-        displayResult(mul(firstNum, inputNum()));
+        displayResult(mul(inputNum(), inputNum()));
         break;
       }
 
     case '/':
       {
-        double firstNum = inputNum().toDouble();
-        displayResult(div(firstNum, inputNum().toDouble()));
+        displayResult(div(inputNum().toDouble(), inputNum().toDouble()));
         break;
       }
     default:
