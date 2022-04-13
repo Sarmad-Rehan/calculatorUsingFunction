@@ -1,12 +1,35 @@
 import 'dart:io';
 
 void main(List<String> args) {
-  String? operator;
+  displayResult();
+}
 
-  print('Enter + to add');
-  print('Enter - to subtract');
-  print('Enter * to multiply');
-  print('Enter / to divide');
+double inputNum() {
+  stdout.write('Enter the value ');
+  return double.parse(stdin.readLineSync()!);
+}
+
+double add(double a, double b) {
+  return a + b;
+}
+
+double sub(double a, double b) {
+  return a - b;
+}
+
+double mul(double a, double b) {
+  return a * b;
+}
+
+double div(double a, double b) {
+  if (b == 0) {
+    print('Denominator can not be 0 ');
+  }
+  return (a / b);
+}
+
+void displayResult() {
+  String? operator;
 
   stdout.write('Enter the operation: ');
   operator = stdin.readLineSync()!;
@@ -14,25 +37,25 @@ void main(List<String> args) {
   switch (operator) {
     case '+':
       {
-        displayResult(add(inputNum(), inputNum()));
+        print(add(inputNum(), inputNum()));
         break;
       }
 
     case '-':
       {
-        displayResult(sub(inputNum(), inputNum()));
+        print(sub(inputNum(), inputNum()));
         break;
       }
 
     case '*':
       {
-        displayResult(mul(inputNum(), inputNum()));
+        print(mul(inputNum(), inputNum()));
         break;
       }
 
     case '/':
       {
-        displayResult(div(inputNum().toDouble(), inputNum().toDouble()));
+        print(div(inputNum().toDouble(), inputNum().toDouble()));
         break;
       }
     default:
@@ -45,32 +68,4 @@ void main(List<String> args) {
         }
       }
   }
-}
-
-int inputNum() {
-  stdout.write('Enter the value ');
-  return int.parse(stdin.readLineSync()!);
-}
-
-int add(int a, int b) {
-  return a + b;
-}
-
-int sub(int a, int b) {
-  return a - b;
-}
-
-int mul(int a, int b) {
-  return a * b;
-}
-
-double div(double a, double b) {
-  if (b == 0) {
-    print('Denominator can not be 0 ');
-  }
-  return (a / b);
-}
-
-void displayResult(final res) {
-  print(res);
 }
